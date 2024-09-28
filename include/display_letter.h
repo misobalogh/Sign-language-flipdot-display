@@ -20,6 +20,8 @@
 #define h 0x17
 #define t 0x0F
 
+// #define A 
+
 #define E 0x4F
 #define F 0x47
 #define H 0x37
@@ -43,5 +45,6 @@ int set_letter_at_position(unsigned char* data, unsigned char letter, int pos, i
 unsigned char* init_message(unsigned char address, unsigned char command);
 
 unsigned char get_segments_from_digit(unsigned int digit);
+unsigned char get_segments_from_letter(char letter);
 
 #endif // DISPLAY_LETTER_H

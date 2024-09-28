@@ -52,3 +52,9 @@ Mkfile.old
 dkms.conf
 
 .vscode
+asl_alphabet_*
+dataset/
+demo_img
+*.jpg
+
+__pycache__/

@@ -46,3 +46,17 @@ unsigned char get_segments_from_digit(unsigned int digit) {
         default: return 0x00; 
     }
 }
+
+
+unsigned char get_segments_from_letter(char letter) {
+    switch (letter) {
+        case 'E': return E;
+        case 'F': return F;
+        case 'H': return H;
+        case 'L': return L;
+        case 'O': return O;
+        case 'P': return P;
+        default:
+            return 0x00;
+    }
+}
