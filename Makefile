@@ -1,8 +1,6 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99
-
-SRC = display_letter.c
-
+CFLAGS = -Wall -Wextra -std=c99 -Iinclude
+SRC = src/main.c src/display_letter.c src/serial.c
 OUTPUT = program
 
 all: $(OUTPUT)
