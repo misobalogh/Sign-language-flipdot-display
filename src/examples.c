@@ -161,3 +161,75 @@ void example_example2(unsigned char* message, int serial_port, int word_at_line)
 
     example_send_and_clean(message, serial_port);
 }
+
+
+void example_example3(unsigned char* message, int serial_port) {
+    set_letter_at_position(message, A, 0, 0);
+    set_letter_at_position(message, B, 1, 0);
+    set_letter_at_position(message, C, 2, 0);
+    set_letter_at_position(message, D, 3, 0);
+    set_letter_at_position(message, E, 4, 0);
+    set_letter_at_position(message, F, 5, 0);
+    set_letter_at_position(message, G, 6, 0);
+
+    set_letter_at_position(message, H, 0, 1);
+    set_letter_at_position(message, I, 1, 1);
+    set_letter_at_position(message, J, 2, 1);
+    set_letter_at_position(message, K, 3, 1);
+    set_letter_at_position(message, L, 4, 1);
+    set_letter_at_position(message, M, 5, 1);
+    set_letter_at_position(message, N, 6, 1);
+
+
+    set_letter_at_position(message, O, 0, 2);
+    set_letter_at_position(message, P, 1, 2);
+    set_letter_at_position(message, Q, 2, 2);
+    set_letter_at_position(message, R, 3, 2);
+    set_letter_at_position(message, S, 4, 2);
+    set_letter_at_position(message, T, 5, 2);
+    set_letter_at_position(message, U, 6, 2);
+
+    set_letter_at_position(message, V, 0, 3);
+    set_letter_at_position(message, W, 1, 3);
+    set_letter_at_position(message, X, 2, 3);
+    set_letter_at_position(message, Y, 3, 3);
+    set_letter_at_position(message, Z, 4, 3);
+    set_letter_at_position(message, SPACE, 5, 3);
+    set_letter_at_position(message, HYPHEN, 6, 3);
+
+
+    example_send_and_clean(message, serial_port);
+}
+
+
+void example_example4(unsigned char* message, int serial_port) {
+    set_letter_at_position(message, P, 0, 0);
+    set_letter_at_position(message, L, 1, 0);
+    set_letter_at_position(message, A, 2, 0);
+    set_letter_at_position(message, Y, 3, 0);
+
+    set_letter_at_position(message, O, 5, 0);
+    set_letter_at_position(message, N, 6, 0);
+
+    set_letter_at_position(message, E, 0, 1);
+    set_letter_at_position(message, R, 1, 1);
+    set_letter_at_position(message, R, 2, 1);
+    set_letter_at_position(message, o, 3, 1);
+    set_letter_at_position(message, R, 4, 1);
+
+
+    set_letter_at_position(message, S, 0, 2);
+    set_letter_at_position(message, T, 1, 2);
+    set_letter_at_position(message, O, 2, 2);
+    set_letter_at_position(message, P, 3, 2);
+
+    set_letter_at_position(message, C, 0, 3);
+    set_letter_at_position(message, L, 1, 3);
+    set_letter_at_position(message, O, 2, 3);
+    set_letter_at_position(message, S, 3, 3);
+    set_letter_at_position(message, E, 4, 3);
+
+
+    example_send_and_clean(message, serial_port);
+}
+

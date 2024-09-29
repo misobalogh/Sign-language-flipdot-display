@@ -24,6 +24,7 @@ int main() {
     }
 
     display_clear(address, command, serial_port);
+    sleep(1);
 
     unsigned char* message = init_message(address, command);
     if (message == NULL) {
@@ -32,48 +33,50 @@ int main() {
         return 1;
     }
 
-    int sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock < 0) {
-        perror("Error creating socket");
-        return 1;
-    }
+    example_example4(message, serial_port);
 
-    struct sockaddr_in server_address;
-    server_address.sin_family = AF_INET;
-    server_address.sin_port = htons(65432);
-    server_address.sin_addr.s_addr = inet_addr("192.168.0.206");
+    // int sock = socket(AF_INET, SOCK_STREAM, 0);
+    // if (sock < 0) {
+    //     perror("Error creating socket");
+    //     return 1;
+    // }
+
+    // struct sockaddr_in server_address;
+    // server_address.sin_family = AF_INET;
+    // server_address.sin_port = htons(65432);
+    // server_address.sin_addr.s_addr = inet_addr("192.168.0.206");
 
 
-    if (connect(sock, (struct sockaddr*)&server_address, sizeof(server_address)) < 0) {
-        perror("Error connecting to server");
-        close(sock);
-        return 1;
-    }
+    // if (connect(sock, (struct sockaddr*)&server_address, sizeof(server_address)) < 0) {
+    //     perror("Error connecting to server");
+    //     close(sock);
+    //     return 1;
+    // }
 
-    int i = 0;
-    char gesture[BUFFER_SIZE];
-    while (1) {
+    // int i = 0;
+    // char gesture[BUFFER_SIZE];
+    // while (1) {
 
-        memset(gesture, 0, BUFFER_SIZE);
-        int bytes_received = recv(sock, gesture, sizeof(gesture) - 1, 0);
-        if (bytes_received > 0) {
-            gesture[bytes_received] = '\0'; 
-            printf("Received gesture: %s\n", gesture);
+    //     memset(gesture, 0, BUFFER_SIZE);
+    //     int bytes_received = recv(sock, gesture, sizeof(gesture) - 1, 0);
+    //     if (bytes_received > 0) {
+    //         gesture[bytes_received] = '\0'; 
+    //         printf("Received gesture: %s\n", gesture);
 
-            set_letter_at_position(message, get_segments_from_letter(gesture[0]), i, 0);
-            i++;
+    //         set_letter_at_position(message, get_segments_from_letter(gesture[0]), i, 0);
+    //         i++;
 
-            int bytes_sent = serial_send(serial_port, message, TOTAL_MESSAGE_SIZE);
-            if (bytes_sent != TOTAL_MESSAGE_SIZE) {
-                fprintf(stderr, "Error: Not all bytes were sent.\n");
-            }
-        } else {
-            break; // Connection closed
-        }
-        sleep(1);
-    }
-
-    close(sock);
+    //         int bytes_sent = serial_send(serial_port, message, TOTAL_MESSAGE_SIZE);
+    //         if (bytes_sent != TOTAL_MESSAGE_SIZE) {
+    //             fprintf(stderr, "Error: Not all bytes were sent.\n");
+    //         }
+    //     } else {
+    //         break; // Connection closed
+    //     }
+    //     sleep(1);
+    // }
+    // 
+    // close(sock);
     serial_close(serial_port);
     free(message);
 
