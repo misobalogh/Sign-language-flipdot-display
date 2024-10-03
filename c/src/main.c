@@ -80,10 +80,10 @@ int main() {
         return 1;
     }
 
-    int error_occured = connect_to_socket(serial_port, message, "192.168.0.206", 65432);
+    // todo: recieve message from model
 
     serial_close(serial_port);
     free(message);
 
-    return error_occured;
+    return 0;
 }

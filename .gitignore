@@ -57,4 +57,7 @@ dataset/
 demo_img
 *.jpg
 
+*.pth
+*.pt
+
 __pycache__/
