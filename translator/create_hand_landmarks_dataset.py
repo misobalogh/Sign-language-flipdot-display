@@ -12,13 +12,14 @@ mp_drawing = mp.solutions.drawing_utils
 
 hands = mp_hands.Hands(static_image_mode=True, max_num_hands=1, min_detection_confidence=0.3)
 
-asl_dataset_dir = 'dataset/asl_alphabet_train' # path to the ASL dataset
-landmark_dataset_file = 'dataset/asl_landmarks_dataset.csv'
+asl_dataset_dir = 'dataset/train' # path to the ASL dataset
+landmark_dataset_file = 'dataset/asl_landmarks_full.csv'
 
 data = []
 
 # Loop through each class (A, B, C, ...)
 for label in os.listdir(asl_dataset_dir):
+    print(f"Processing class: {label}...")
     label_dir = os.path.join(asl_dataset_dir, label)
     if not os.path.isdir(label_dir):
         continue

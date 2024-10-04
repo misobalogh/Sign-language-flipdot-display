@@ -6,10 +6,10 @@ import random
 # generated with chatpgt
 
 # Directory containing the ASL dataset
-asl_dataset_train_dir = './asl_alphabet_train'
+asl_dataset_train_dir = 'dataset/train'
 
 # Number of images to keep per class
-images_to_keep = 100
+images_to_keep = 500
 
 # Loop through each class folder (e.g., 'A', 'B', 'C', etc.)
 for label in os.listdir(asl_dataset_train_dir):
