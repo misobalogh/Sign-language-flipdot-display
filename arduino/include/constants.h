@@ -15,6 +15,7 @@ constexpr unsigned char FOOTER = 0x8F;
 // 7 segment display symbols
 constexpr unsigned char SPACE = 0x00;
 constexpr unsigned char HYPHEN = 0x01;
+constexpr unsigned char UNDERSCORE = 0x08;
 
 constexpr unsigned char h = 0x17;
 constexpr unsigned char o = 0x1D;
@@ -58,6 +59,7 @@ constexpr unsigned char SIX = 0x5F;
 constexpr unsigned char SEVEN = 0x70;
 constexpr unsigned char EIGHT = 0x7F;
 constexpr unsigned char NINE = 0x7B;
+
 
 unsigned char get_segments_from_digit(unsigned int digit);
 unsigned char get_segments_from_letter(char letter);

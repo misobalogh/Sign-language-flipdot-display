@@ -38,7 +38,7 @@ public:
             return;
         }
 
-        message[pos + line * SYMBOLS_PER_LINE + DATA_OFFSET] = get_segments_from_letter(letter);
+        message[pos + line * SYMBOLS_PER_LINE + DATA_OFFSET] = letter;
     }
 
     void sendMessage(SoftwareSerial &serial) {
