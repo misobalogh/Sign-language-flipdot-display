@@ -8,3 +8,8 @@
 title={ASL Alphabet},
 url={https://www.kaggle.com/dsv/29550},
 DOI={10.34740/KAGGLE/DSV/29550},
+
+# arudino
+https://docs.arduino.cc/retired/library-examples/wifi-library/UdpNtpClient/
+https://randomnerdtutorials.com/getting-started-with-esp8266-wifi-transceiver-review/
+https://randomnerdtutorials.com/esp32-ntp-client-date-time-arduino-ide/

@@ -1,3 +1,6 @@
+// Author: Michal Balogh, xbalog06
+// Date: 14-10-2024
+
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
@@ -15,9 +18,11 @@ constexpr unsigned char FOOTER = 0x8F;
 // 7 segment display symbols
 constexpr unsigned char SPACE = 0x00;
 constexpr unsigned char HYPHEN = 0x01;
+constexpr unsigned char COLON = 0x09;
 constexpr unsigned char UNDERSCORE = 0x08;
 
 constexpr unsigned char h = 0x17;
+constexpr unsigned char u = 0x1C;
 constexpr unsigned char o = 0x1D;
 constexpr unsigned char r = 0x05;
 constexpr unsigned char t = 0x0F;
@@ -61,6 +66,7 @@ constexpr unsigned char EIGHT = 0x7F;
 constexpr unsigned char NINE = 0x7B;
 
 
+// Functions for mapping digits and letters to 7-segment display symbols
 unsigned char get_segments_from_digit(unsigned int digit);
 unsigned char get_segments_from_letter(char letter);
 

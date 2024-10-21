@@ -1,5 +1,9 @@
+// Author: Michal Balogh, xbalog06
+// Date: 14-10-2024
+
 #include "constants.h"
 
+// Map a digit to its corresponding 7-segment display representation
 unsigned char get_segments_from_digit(unsigned int digit) {
     switch (digit) {
         case 0: return ZERO;
@@ -16,6 +20,8 @@ unsigned char get_segments_from_digit(unsigned int digit) {
     }
 }
 
+
+// Map a letter to its corresponding 7-segment display representation
 unsigned char get_segments_from_letter(char letter) {
     switch (letter) {
     case 'A': return A;
@@ -44,6 +50,7 @@ unsigned char get_segments_from_letter(char letter) {
     case 'X': return X;
     case 'Y': return Y;
     case 'Z': return Z;
+    case ' ': return SPACE;
     default: return 0x00;
     }
 }
