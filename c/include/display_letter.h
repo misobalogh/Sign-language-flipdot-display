@@ -1,3 +1,6 @@
+// Author: Michal Balogh, xbalog06
+// Date: 14-10-2024
+
 #ifndef DISPLAY_LETTER_H
 #define DISPLAY_LETTER_H
 

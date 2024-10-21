@@ -1,3 +1,6 @@
+// Author: Michal Balogh, xbalog06
+// Date: 14-10-2024
+
 #include <stdlib.h>
 #include "display_letter.h"
 
@@ -30,7 +33,7 @@ unsigned char* init_message(unsigned char address, unsigned char command) {
     return message;
 }
 
-
+// Map a digit to its corresponding 7-segment display representation
 unsigned char get_segments_from_digit(unsigned int digit) {
     switch (digit) {
         case 0: return ZERO;
@@ -47,16 +50,36 @@ unsigned char get_segments_from_digit(unsigned int digit) {
     }
 }
 
-
+// Map a letter to its corresponding 7-segment display representation
 unsigned char get_segments_from_letter(char letter) {
     switch (letter) {
-        case 'E': return E;
-        case 'F': return F;
-        case 'H': return H;
-        case 'L': return L;
-        case 'O': return O;
-        case 'P': return P;
-        default:
-            return 0x00;
+    case 'A': return A;
+    case 'B': return B;
+    case 'C': return C;
+    case 'D': return D;
+    case 'E': return E;
+    case 'F': return F;
+    case 'G': return G;
+    case 'H': return H;
+    case 'I': return I;
+    case 'J': return J;
+    case 'K': return K;
+    case 'L': return L;
+    case 'M': return M;
+    case 'N': return N;
+    case 'O': return O;
+    case 'P': return P;
+    case 'Q': return Q;
+    case 'R': return R;
+    case 'S': return S;
+    case 'T': return T;
+    case 'U': return U;
+    case 'V': return V;
+    case 'W': return W;
+    case 'X': return X;
+    case 'Y': return Y;
+    case 'Z': return Z;
+    case ' ': return SPACE;
+    default: return 0x00;
     }
 }

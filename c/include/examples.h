@@ -1,8 +1,12 @@
+// Author: Michal Balogh, xbalog06
+// Date: 14-10-2024
+
 #ifndef EXAMPLES_H
 #define EXAMPLES_H
 
 #include <sys/time.h> // For timeval
 
+// Examples that tests the functionality of the serial port and the display
 void example_time(unsigned char* message, int serial_port, unsigned int hours, unsigned int minutes, unsigned int seconds);
 void example_timer(unsigned char* message, int serial_port, unsigned int hours, unsigned int minutes, unsigned int seconds);
 void example_clock(unsigned char* message, int serial_port);

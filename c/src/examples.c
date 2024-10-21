@@ -1,3 +1,6 @@
+// Author: Michal Balogh, xbalog06
+// Date: 14-10-2024
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/time.h> 
@@ -7,6 +10,8 @@
 #include "serial.h"
 #include "examples.h"
 
+
+// Send a message and check if all bytes were sent
 void example_send_and_clean(unsigned char* message, int serial_port) {
     int bytes_sent = serial_send(serial_port, message, TOTAL_MESSAGE_SIZE);
     if (bytes_sent != TOTAL_MESSAGE_SIZE) {
@@ -14,6 +19,7 @@ void example_send_and_clean(unsigned char* message, int serial_port) {
     }
 }
 
+// Display a stopwatch in H-MM-SS format
 void example_stopwatch(unsigned char* message, int serial_port) {
     unsigned int hours = 0;
     unsigned int minutes = 0;
@@ -40,6 +46,7 @@ void example_stopwatch(unsigned char* message, int serial_port) {
     }
 }
 
+// Display a timer in H-MM-SS format
 void example_timer(unsigned char* message, int serial_port, unsigned int hours, unsigned int minutes, unsigned int seconds) {
 	while (1) {
 		example_time(message, serial_port, hours, minutes, seconds);
@@ -162,7 +169,7 @@ void example_example2(unsigned char* message, int serial_port, int word_at_line)
     example_send_and_clean(message, serial_port);
 }
 
-
+// Example 3: Display the alphabet
 void example_example3(unsigned char* message, int serial_port) {
     set_letter_at_position(message, A, 0, 0);
     set_letter_at_position(message, B, 1, 0);
@@ -201,7 +208,7 @@ void example_example3(unsigned char* message, int serial_port) {
     example_send_and_clean(message, serial_port);
 }
 
-
+// Example 4: Display some words: "PLAY ON ERROR STOP CLOSE"
 void example_example4(unsigned char* message, int serial_port) {
     set_letter_at_position(message, P, 0, 0);
     set_letter_at_position(message, L, 1, 0);
