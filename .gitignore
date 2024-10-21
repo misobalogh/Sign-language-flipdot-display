@@ -55,7 +55,7 @@ dkms.conf
 asl_alphabet_*
 dataset/
 demo_img
-*.jpg
+
 
 *.pth
 *.pt
