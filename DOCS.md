@@ -25,10 +25,11 @@ pismena znakovej abecedy. Tieto data su potom zobrazovane na displej.
 S displejom sa da komunikovat pomocou prevodníku RS-485, rychlostou
 57600 baudov. Znaky na displeji sa nedaju nastavit jednotlivo, ale naraz
 pomocou datoveho ramcu, ktory specifikuje vyrobca[^1]:
-
---
-   `0x80`   `Command`   `Address`   `Data`   `0x8F`
-  -------- ----------- ----------- -------- --------
+```
++-------+----------+---------+----------------+-------+
+| 0x80  | Command  | Address |      Data      | 0x8F  |
++-------+----------+---------+----------------+-------+
+```
 
 
 Na zaciatku je hlavicka `0x80`. `Command` specifikuje, ktory typ
@@ -132,14 +133,34 @@ Program treba spustit v dvoch terminaloch. V jednom treba spustit `main.py` a v 
 V tejto variante bezi cely program v Pythone na Raspberry Pi 4. Cely program je v priecinku `rpi4_py` 
 a da sa spustit pomocou skriptu `main.py`. Tento skript podobne ako vo variante 1 nacita natrenovany model, otvori kameru a nastavi seriovu komunikaciu s displejom. Jediny rozdiel je, ze data neposiela cez socket, ale priamo cez seriovu linku do displeja.
 
-## Varianta 3: esp8266 C+Python
+## Varianta 3: esp8266 C+Python - Finalna varianta
 
 Posledna varianta je implementovana na platforme ESP8266. Implementaciu je mozne najst v priecinku `esp8266`.
 Tato varianta je rozdelena na dve casti. Prva cast je `server_gestures` implementovana v Arduine. Tato cast sluzi ako server. 
 Pomocou wifi modulu sa pripoji do siete a caka na data od klienta na urcitej IP adrese a porte. Data od klienta posiela na seriovu linku a tie sa zobrazuju na displeji. Seriova linka je pripojena na prevodinka RS845 na datovych pinoch D2 (TX) a D3 (RX). Velkou vyhodou tejto varianty je, ze klient je uplne nezavisly od servera a moze byt implementovany na akejkolvek platforme a posielat v podsate hocijake data. V mojom pripade som uz vyuzil natrenovany model na rozpoznavanie znakov a posielal som predikovane znaky na server. Ale klient sa da vymenit za hocijaky iny program, ktory bude posielat znaky na server a ten ich bude zobrazovat na displeji. Okrem toho, v tejto variante je upraveny beh programu na ESP8266. Po pripojeni do siete sa vypise animovana uvitacia sprava "HELLO". Nasledne sa moze program dostat do dvoch stavov: stav IDLE a stav CONNECTED. Zacina v stave IDLE a caka na pripojenie zariadenia na konkretny port. V tomto stave zobrazuje na displeji cas, teplotu a vlhkost. Teplotu a vlhkost ziskava zo senzoru DHT11. Senzor je zapojeny do datoveho pinu D5. Po pripojeni zariadenia sa prejde do stavu CONNECTED, ktore je singalizovane blikajucim kurzorom a zacne prijimat data od klienta a zobrazovat ich na displeji. Po ukonceni spojenia prejde zase do stavu IDLE.
 
 
-zdroje: https://arduinoposlovensky.sk/projekty/dht11-a-dht22/
+## Zaver
+
+Projekt bol narocny na vypracovanie, ale kedze bol velmi zaujimavy, islo to dobre. Najzlozitejsou castou bolo vymyslenie struktury programu - komunikacie medzi jednotlivymi castami. Najspokojnejsi som s poslednou variantou, kde je spracovanie dat velmi flexibilne a displej sa da vyuzit na zobrazovanie hocijakeho textu aj v inych projektoch.
+Okrem toho dalsiou zlozitejsou castou obolo nastavenie seriovej komunikacie s displejom a vytvorenie datoveho ramca podla specifikacie. Na projekte som stravil vyse 40 hodin. 
+
+Autoevaluacia: 
+- E: 2b - kedze zadanie som si vymyslel sam, chcel som ho dotiahnut do stavu, ktory sa mi bude pacit, a preto som aj vytvoril 3 rozne varianty
+- F: 5b - hlavne posledna varianta splna vsetky poziadavky zadania, a okrem toho ma rozne bonusy, ako napriklad zaujimave animacie
+- Q: 2b 
+    - uzivatelska privetivost: uzivatel sa moze pripojit bud so svojim programom a na jednoduche rozhranie posielat znaky na displej, alebo moze pouzit moj program na rozpoznavanie znakov a posielat predikovane znaky na displej, ktore aj vidi na obrazovke kde sa zobrazuje vystup 
+    - sposob implementacie: implementacia je rozdelena na dve casti, server a klient, ktore su nezavisle a komunikacia medzi nimi prebieha cez wifi
+- D: 3b 
+    - Uvod do probemu: Myslim si, ze jasne popisujem, co je cielom projektu
+    - Popis riesenia: Do detailu popisujem vsetky 3 varianty a ich implementaciu
+    - Zhodnotenie: Zhodnotenie je podrobne a obsahuje vsetky potrebne casti
+- P: 2b
+    - Verim, ze projekt odprezentujem dobre :), a prezentacia projektu samotneho je pekna vizualna, interaktivna a zaujimava
+- SUM: 14b
+
+## Zdroje:
+https://arduinoposlovensky.sk/projekty/dht11-a-dht22/
 https://techfun.sk/produkt/rs485-prevodnik-s-cipom-max485esa/
 https://papouch.com/prevodniky/rs485/
 
