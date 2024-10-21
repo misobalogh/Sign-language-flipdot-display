@@ -1,3 +1,8 @@
+############################################
+## Author: Michal Balogh, xbalog06        ##
+## Date: 14.10.2024                       ##
+############################################
+
 from hand_gesture_recognition import HandGestureRecognition
 from serial_communication import SerialCommunication
 from message_constructor import MessageConstructor
@@ -5,7 +10,6 @@ from message_constructor import MessageConstructor
 MODEL_PATH = "gesture_recognition_model.pth"
 SERIAL_PORT = "/dev/tty0"
 TIME_BETWEEN_GESTURES = 5  # in seconds
-
 
 
 if __name__ == "__main__":

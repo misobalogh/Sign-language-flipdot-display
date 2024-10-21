@@ -1,3 +1,10 @@
+############################################
+## Author: Michal Balogh, xbalog06        ##
+## Date: 14.10.2024                       ##
+############################################
+
+# Train script for gesture recognition model
+
 import torch
 import torch.nn as nn
 import torch.optim as optim

@@ -1,3 +1,15 @@
+############################################
+## Author: Michal Balogh, xbalog06        ##
+## Date: 14.10.2024                       ##
+############################################
+
+# Script for creating a dataset of hand landmarks from the ASL dataset
+# The script uses MediaPipe to detect hand landmarks in each image of the ASL dataset and saves the landmarks to a CSV file
+# The  CSV file with the following columns:
+# - label: the class label (e.g., A, B, C, ...)
+# - x0, y0, z0, x1, y1, z1, ..., x20, y20, z20: the x, y, and z coordinates of the 21 hand landmarks
+
+
 import mediapipe as mp
 import cv2
 import os

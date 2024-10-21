@@ -1,9 +1,14 @@
+############################################
+## Author: Michal Balogh, xbalog06        ##
+## Date: 14.10.2024                       ##
+############################################
+
 import cv2
 import numpy as np
 import torch
 import mediapipe as mp
 import socket
-from gesture_recognition_model import GestureRecognitionModel
+from train.gesture_recognition_model import GestureRecognitionModel
 import time
 
 TIME_BETWEEN_GESTURES = 5

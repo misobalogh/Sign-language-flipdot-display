@@ -1,3 +1,10 @@
+############################################
+## Author: Michal Balogh, xbalog06        ##
+## Date: 14.10.2024                       ##
+############################################
+
+# Simple model for gesture recognition from 3D hand landmarks
+
 import torch.nn as nn
 
 class GestureRecognitionModel(nn.Module):

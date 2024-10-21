@@ -1,3 +1,8 @@
+############################################
+## Author: Michal Balogh, xbalog06        ##
+## Date: 14.10.2024                       ##
+############################################
+
 import cv2
 import numpy as np
 import torch

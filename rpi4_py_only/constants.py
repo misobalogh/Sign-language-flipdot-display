@@ -1,3 +1,8 @@
+############################################
+## Author: Michal Balogh, xbalog06        ##
+## Date: 14.10.2024                       ##
+############################################
+
 # 4x7 segment display
 NUM_LINES = 4
 SYMBOLS_PER_LINE = 7
