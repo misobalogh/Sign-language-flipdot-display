@@ -20,6 +20,10 @@ zadanim bolo zobrazenie jednoduchých správ a meranej teploty a vlhkosti.
 Po splneni tohto zadania, som vytvoril neuronovu siet, ktora rozoznava
 pismena znakovej abecedy. Tieto data su potom zobrazovane na displej.
 
+## Riešenie Projektu
+Ako funguje projekt, mozno vidiet na tomto videu:
+[![video](https://img.youtube.com/vi/IdzLrns7vJk/0.jpg)](https://www.youtube.com/watch?v=IdzLrns7vJk)
+
 ## Vybavenie
 
 ### 7-segmentovy displej typu flip-dots
