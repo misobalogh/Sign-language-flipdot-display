@@ -88,6 +88,9 @@ Tento kód je implementovaný vo variante riešenia číslo 1, v súbore:
 `
 ./rpi4_py_c/serial_com_c/src/serial.c
 `
+## Schéma zapojenia
+![Schéma zapojenia](docs/imgs/wiringschema_dark.png)
+
 
 ## Varianty riesenia
 
