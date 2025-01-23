@@ -42,6 +42,16 @@ void MessageHandler::set_letter_at_position(unsigned char letter, int pos, int l
     message[pos + line * SYMBOLS_PER_LINE + DATA_OFFSET] = (letter);
 }
 
+void MessageHandler::animate_letter(unsigned char letter, int pos, int line, SoftwareSerial& serial) {
+    unsigned char partial = 0x00;
+    for (int i = 0; i < 7; i++) {
+        partial |= letter & (0x40 >> i);
+        set_letter_at_position(partial, pos, line);
+        sendMessage(serial);
+        delay(100);
+    }
+}
+
 void MessageHandler::sendMessage(SoftwareSerial& serial) {
     if (message) {
         serial.write(message.get(), TOTAL_MESSAGE_SIZE);

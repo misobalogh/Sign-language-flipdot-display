@@ -103,22 +103,25 @@ void loop() {
                     continue;
                 }
 
-                // Set the message
-                char letter = receivedData.charAt(0);
-                msgHandler.set_letter_at_position(get_segments_from_letter(letter), pos, line);
+               // Set the message
+                for (unsigned i = 0; i < receivedData.length(); i++) {
+                    char letter = receivedData.charAt(i);
+                    // msgHandler.set_letter_at_position(get_segments_from_letter(letter), pos, line);
+                    msgHandler.animate_letter(get_segments_from_letter(letter), pos, line, SerialRS485);
 
-                // Move to the next position on the display
-                pos = (pos + 1) % SYMBOLS_PER_LINE;
-                if (pos == 0) {
-                    line = (line + 1) % NUM_LINES;
+                    // Move to the next position on the display
+                    pos = (pos + 1) % SYMBOLS_PER_LINE;
+                    if (pos == 0) {
+                        line = (line + 1) % NUM_LINES;
+                    }
+
+                    // Debug prints
+                    Serial.print("Writing: ");
+                    Serial.println(letter);
+
+                    // msgHandler.sendMessage(SerialRS485);
+                    // delay(200);
                 }
-
-                // Debug prints
-                Serial.print("Received: ");
-                Serial.println(receivedData);
-
-                msgHandler.sendMessage(SerialRS485);
-            }
         }
         
         client.stop();

@@ -33,6 +33,9 @@ public:
     // Send message via serial
     void sendMessage(SoftwareSerial& serial);
 
+    // Animate letter and display it
+    void animate_letter(unsigned char letter, int pos, int line, SoftwareSerial& serial);
+
     // Clear message
     void clear(SoftwareSerial& serial);
 };
